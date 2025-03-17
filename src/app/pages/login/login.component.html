@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <section class="form-section">
+            <div>
+                <img src="/assets/img/logo.jpg" alt="">
+                <h2> Faça seu Login </h2>
+            </div>
+            <form [formGroup]="loginForm" (ngSubmit)="onLogin()" class="example-form">
+                <input type="text" placeholder="Email" name="email" required [formControl]="loginForm.controls['email']">
+                <div></div>
+                <input type="password" placeholder="Senha" name="password" required [formControl]="loginForm.controls['password']">
+                <div class="btn-wraper">
+                    <button type="submit" [disabled]="loginForm.invalid">Login</button>
+                </div>
+            </form>
+            <div>
+                <span>ou</span>
+                <button>Criar Conta</button>
+            </div>
+        </section>
+        <section class="main-section">
+            <h1>SkyJet Airlines</h1>
+        </section>
+    </main>
+</body>
+</html>
