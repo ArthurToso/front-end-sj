@@ -17,13 +17,17 @@
                 <div></div>
                 <input type="password" placeholder="Senha" name="password" required [formControl]="loginForm.controls['password']">
                 <div class="btn-wraper">
-                    <button type="submit" [disabled]="loginForm.invalid">Login</button>
+                    <div *ngIf="loginError" class="error-message">
+                        {{loginError}}
+                    </div>
+                    <button type="submit">Login</button>
                 </div>
             </form>
             <div>
-                <span>ou</span>
-                <button>Criar Conta</button>
+                <span> ou </span>
+                <button id="second-button" (click)="navigateToSignup()">Criar Conta</button>
             </div>
+            <p>{{loginErrorConta}}</p>
         </section>
         <section class="main-section">
             <h1>SkyJet Airlines</h1>

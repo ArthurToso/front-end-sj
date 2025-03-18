@@ -12,13 +12,9 @@ import {
   FormGroup,
 } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
-
-export class MyErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
-    const isSubmitted = form && form.submitted;
-    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
-  }
-}
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -28,7 +24,8 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
     MatFormFieldModule,
     MatInputModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CommonModule,
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
@@ -37,13 +34,15 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 
 export class LoginComponent {
   @Input() title: string = "Faça Login na sua Conta";
+  loginError: string = '';
+  loginErrorConta: string = 'Não possui uma conta? Clique em "Criar Conta" para se cadastrar.'; 
 
   loginForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required]),
   });
-
-  matcher = new MyErrorStateMatcher();
+  
+  constructor(private router: Router) {}
 
   onLogin() {
     if (this.loginForm.valid) {
@@ -52,8 +51,12 @@ export class LoginComponent {
       console.log('Email: ' + email + ' Password: ' + password);
 
     }else{
-      console.log('Formulário inválido');
+      this.loginError = 'Por favor, verifique seu e-mail e senha e tente novamente.';
     }
+  }
+
+  navigateToSignup(){
+    this.router.navigate(['/signup']);
   }
 
 }
