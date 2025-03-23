@@ -16,17 +16,15 @@
                 <input type="text" placeholder="Email" name="email" required [formControl]="loginForm.controls['email']">
                 <div></div>
                 <input type="password" placeholder="Senha" name="password" required [formControl]="loginForm.controls['password']">
+                <div *ngIf="loginError" class="error-message">
+                    {{loginError}}
+                </div>
                 <div class="btn-wraper">
-                    <div *ngIf="loginError" class="error-message">
-                        {{loginError}}
-                    </div>
-                    <button type="submit">Login</button>
+                    <button type="submit" class="btn btn-primary p-2 d-block w-100">Login</button>
+                    <span> ou </span>
+                    <button class="btn btn-outline-primary p-2 d-block w-100" (click)="navigateToSignup()">Criar Conta</button>                    
                 </div>
             </form>
-            <div>
-                <span> ou </span>
-                <button id="second-button" (click)="navigateToSignup()">Criar Conta</button>
-            </div>
             <p>{{loginErrorConta}}</p>
         </section>
         <section class="main-section">
