@@ -11,14 +11,27 @@
             <div>        
                 <img src="/assets/img/logo.jpg" alt="">
                 <h2> Faça seu Cadastro </h2>
-                <form action="">
+                <form [formGroup] = "signupForm" (ngSubmit)="onSignup()">
                     <label for="">CPF</label>
                     <input type="text" name="cpf" placeholder="apenas números" pattern="\d*" maxlength="11">
                     <label for="">Nome</label>
                     <input type="text" name="nome" placeholder="Digite seu nome" required pattern="[a-zA-Z0-9]+">
                     <label for="">Email</label>
                     <input type="text" placeholder="Email" name="email">
-                    
+                    <label for="">CEP</label>
+                    <input type="text" formControlName="cep" placeholder="Digite seu CEP" 
+                    required pattern="\d*" 
+                    maxlength="8" 
+                    (blur)="buscarCep()">
+                    <label for="">Rua</label>
+                    <input type="text" formControlName="rua" readonly>
+                    <label for="">Numero</label>
+                    <input type="text" required pattern="\d*">   
+                    <label for="">Cidade</label>
+                    <input type="text" formControlName="cidade" readonly>
+                    <label for="">Estado</label>
+                   <input type="text" formControlName="estado" readonly>
+                   <button type="submit">Cadastrar</button>
                 </form>
             </div>
 

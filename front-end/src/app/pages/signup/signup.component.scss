@@ -30,7 +30,7 @@ main {
     align-items: center;
     justify-content: center;
     width: 35%;
-    padding: 40px;
+    padding: 50px;
     background-color: #ffffff;
     box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
     gap: 20px;
@@ -53,57 +53,31 @@ main {
 
 .form-section input {
     width: 100%;
-    padding: 12px;
+    padding: 8px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    font-size: 16px;
+    font-size: 14px;
 }
 
-.btn-wraper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    margin-top: 20px;
+.form-section label {
+    font-size: 12px;
+
+    margin-top: 5px;
 }
 
-.btn-wraper button {
-    width: 80%;
-    padding: 12px;
+.form-section button {
+    width: 50%;
+    padding: 8px;
     border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-#second-button {
-    background-color: #007bff;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: #0000a6;
     color: white;
-    margin-bottom: 10px;
-    padding: 12px;
     cursor: pointer;
-    border: none;
-    border-radius: 8px;
-}
-
-.btn-wraper button:last-child {
-    background-color: transparent;
-    border: 1px solid #007bff;
-    color: #007bff;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
     margin-top: 10px;
-}
-
-.error-message{
-    color: red;
-    font-size: 14px;
-    text-align: center;
-    margin-top: 10px;
-}
-
-.btn-wraper span {
-    margin: 10px 0;
-    font-size: 14px;
-    color: #666;
 }
 
 .main-section {
